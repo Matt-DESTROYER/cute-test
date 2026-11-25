@@ -37,7 +37,11 @@ int cute_test_finish(void);
 	CUTE_ASSERT((a) != (b))
 
 #define CUTE_ASSERT_STR_EQ(a, b) \
-	CUTE_ASSERT(strcmp((a), (b)) == 0)
+	CUTE_ASSERT( \
+		(a) != NULL && \
+		(b) != NULL && \
+		strcmp((a), (b)) == 0 \
+	)
 
 #define CUTE_ASSERT_NULL(value) \
 	CUTE_ASSERT((value) == NULL)
